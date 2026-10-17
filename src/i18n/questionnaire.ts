@@ -1,5 +1,5 @@
 export const questionnaireFa: Record<string,string> = {
-  "I’m Hossein Esameili, an electrical engineer in Tehran with 7 years of experience in building electrical design and supervision. Send your drawings and project brief to start a conversation.": "من حسین اسماعیلی هستم؛ مهندس برق در تهران با ۷ سال تجربه در طراحی و نظارت تأسیسات الکتریکی ساختمان. برای شروع گفتگو، نقشه‌ها و مشخصات پروژه‌تان را ارسال کنید.",
+  "I’m Hossein Esmaeili, an electrical engineer in Tehran with 7 years of experience in building electrical design and supervision. Send your drawings and project brief to start a conversation.": "من حسین اسماعیلی هستم؛ مهندس برق در تهران با ۷ سال تجربه در طراحی و نظارت تأسیسات الکتریکی ساختمان. برای شروع گفتگو، نقشه‌ها و مشخصات پروژه‌تان را ارسال کنید.",
   "Building electrical design & supervision": "طراحی و نظارت برق ساختمان",
   "Tehran, Iran · Projects across Iran": "تهران، ایران · همکاری در سراسر ایران",
   "Electrical designer & supervisor": "طراح و ناظر برق",

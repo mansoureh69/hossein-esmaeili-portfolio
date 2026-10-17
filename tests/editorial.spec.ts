@@ -21,9 +21,9 @@ for (const language of ['en', 'fa']) {
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
       await expect(page.locator('.focus-block')).toHaveCount(4);
-      await expect(page.locator('#contact a[href^="mailto:"]')).toHaveCount(1);
-      await expect(page.locator('#contact a[href^="tel:"]')).toHaveCount(1);
-      await expect(page.locator('#contact a[href^="https://t.me/"]')).toHaveCount(1);
+      await expect(page.locator('#contact .direct-contact a[href^="mailto:"]')).toHaveCount(1);
+      await expect(page.locator('#contact .direct-contact a[href^="tel:"]')).toHaveCount(1);
+      await expect(page.locator('#contact .direct-contact a[href^="https://t.me/"]')).toHaveCount(1);
       await page.locator('.project-secondary button').first().click();
       await expect(page.locator('.projects-shutter h3')).toContainText(language === 'en' ? 'Municipal' : 'شهرداری');
       await page.locator('#projects').scrollIntoViewIfNeeded();

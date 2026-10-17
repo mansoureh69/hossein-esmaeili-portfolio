@@ -8,21 +8,14 @@ test('switches language, localizes content and dialogs, and remembers preference
   await expect(page.locator('html')).toHaveAttribute('lang', 'fa');
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
   await expect(page).toHaveTitle('حسین اسماعیلی — مهندس برق');
-  await expect(page.locator('h1')).toContainText('طراحی برق.');
+  await expect(page.locator('h1')).toContainText('طراحی برق');
   await expect(page.locator('.hero-description')).toContainText('من حسین اسماعیلی هستم');
   await expect(page.locator('.projects-shutter')).toContainText('مسکونی کاوه');
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await page.locator('.hero-buttons').getByRole('button', { name: 'ارتباط با من' }).click();
-  await page.getByRole('button', { name: 'ارسال پیام' }).click();
-  await expect(page.getByLabel('نام', { exact: true })).toBeFocused();
-  await expect.poll(() => page.locator('#contact-name').evaluate((el: HTMLInputElement) => el.validationMessage)).toBe('لطفاً این قسمت را تکمیل کنید.');
-  await page.getByLabel('نام', { exact: true }).fill('کاربر آزمایشی');
-  await page.getByLabel('ایمیل').fill('test@example.com');
-  await expect(page.getByLabel('ایمیل')).toHaveAttribute('dir', 'ltr');
-  await page.getByLabel('پروژه یا پیام').fill('بررسی نسخه فارسی سایت');
-  await page.getByRole('button', { name: 'ارسال پیام' }).click();
-  await expect(page.getByRole('heading', { name: 'آزمایش انجام شد' })).toBeVisible();
-  await page.keyboard.press('Escape');
+  await expect(page.locator('.hero-buttons').getByRole('link', { name: 'ارتباط با من' })).toHaveAttribute('href', 'mailto:h.esmaeili1213@gmail.com');
+  await expect(page.locator('#contact').getByRole('link', { name: 'تلگرام', exact: true })).toHaveAttribute('href', 'https://t.me/Hosseines1213');
+  await expect(page.locator('form')).toHaveCount(0);
+  await expect(page.getByText(/فرم آزمایشی|آزمایش انجام شد|پیام ارسال شد/)).toHaveCount(0);
   await page.reload(); await expect(page.locator('.loader')).toHaveCount(0);
   await expect(page.locator('html')).toHaveAttribute('lang', 'fa');
   await page.getByRole('button', { name: 'باز کردن منو' }).click();
@@ -30,7 +23,7 @@ test('switches language, localizes content and dialogs, and remembers preference
   await expect(page.getByRole('dialog')).toHaveAccessibleName('Navigation');
   await page.keyboard.press('Escape');
   await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
-  await expect(page.locator('h1')).toContainText('Electrical design.');
+  await expect(page.locator('h1')).toContainText('Electrical design');
   await page.reload(); await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 });
 
@@ -52,10 +45,8 @@ for (const width of [360, 768, 1024, 1440]) {
     expect(headerOverlap).toBe(false);
     await page.screenshot({ path: `test-results/persian-${width}.png`, fullPage: true });
     await page.screenshot({ path: `test-results/persian-hero-${width}.png` });
-    await page.locator('.hero-buttons').getByRole('button', { name: 'ارتباط با من' }).click();
-    await expect(page.getByRole('dialog')).toBeVisible();
-    expect(await page.locator('.dialog-panel').evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
-    await page.screenshot({ path: `test-results/persian-form-${width}.png` });
+    await expect(page.locator('.hero-buttons').getByRole('link', { name: 'ارتباط با من' })).toHaveAttribute('href', 'mailto:h.esmaeili1213@gmail.com');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
   });
 }
 

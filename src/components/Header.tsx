@@ -9,10 +9,10 @@ export function LocalClock() {
     useEffect(() => { const timer = setInterval(() => setNow(new Date()), 1000); return () => clearInterval(timer); }, []);
     return <span className="clock"><span>{t("Your local time")}</span><time dateTime={now.toISOString()}>{now.toLocaleTimeString(language === 'fa' ? 'fa-IR' : 'en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase()}</time></span>;
 }
-export default function Header({ ready, onMenu, onContact }: {
+export default function Header({ ready, onMenu, contactHref }: {
     ready: boolean;
     onMenu: () => void;
-    onContact: () => void;
+    contactHref: string;
 }) {
     const { t } = useLanguage();
     const { navigation } = usePortfolio();
@@ -28,5 +28,5 @@ export default function Header({ ready, onMenu, onContact }: {
         window.addEventListener('scroll', update, { passive: true });
         return () => window.removeEventListener('scroll', update);
     }, [navigation]);
-    return <motion.header className="header" initial={{ opacity: 0, y: reduced ? 0 : -14 }} animate={ready ? { opacity: 1, y: 0 } : {}} transition={{ delay: reduced ? 0 : .15 }}><div className="shell header-inner"><a href="#home" aria-label={t("Hossein Esameili, home")}><Brand /></a><nav aria-label={t("Primary")}><ul>{navigation.map(item => <li key={item.id}>{item.id === 'contact' ? <button className="header-contact" onClick={onContact}>{item.label}</button> : <a aria-current={active === item.id ? "location" : undefined} href={`#${item.id}`}>{item.label}</a>}</li>)}</ul></nav><div className="header-actions"><LanguageSwitch /><button className="menu-button" onClick={onMenu} aria-label={t("Open navigation")}><Menu size={17}/><span>{t("Menu")}</span></button></div></div></motion.header>;
+    return <motion.header className="header" initial={{ opacity: 0, y: reduced ? 0 : -14 }} animate={ready ? { opacity: 1, y: 0 } : {}} transition={{ delay: reduced ? 0 : .15 }}><div className="shell header-inner"><a href="#home" aria-label={t("Hossein Esmaeili, home")}><Brand /></a><nav aria-label={t("Primary")}><ul>{navigation.map(item => <li key={item.id}>{item.id === 'contact' ? <a className="header-contact" href={contactHref}>{item.label}</a> : <a aria-current={active === item.id ? "location" : undefined} href={`#${item.id}`}>{item.label}</a>}</li>)}</ul></nav><div className="header-actions"><LanguageSwitch /><button className="menu-button" onClick={onMenu} aria-label={t("Open navigation")}><Menu size={17}/><span>{t("Menu")}</span></button></div></div></motion.header>;
 }

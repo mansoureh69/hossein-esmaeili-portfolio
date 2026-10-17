@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useLayoutEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import { fa } from './fa';
 import { questionnaireFa } from './questionnaire';
@@ -13,11 +13,23 @@ const Context = createContext<{ language: Language; setLanguage: (language: Lang
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(initialLanguage);
   const value = useMemo(() => ({ language, setLanguage, t: (text: string) => language === 'fa' ? questionnaireFa[text] ?? fa[text] ?? text : text }), [language]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = language === 'fa' ? 'rtl' : 'ltr';
-    document.title = `${value.t('Hossein Esameili')} — ${value.t('Electrical Engineer')}`;
-    document.querySelector('meta[name="description"]')?.setAttribute('content', value.t(content.profile.introduction));
+    document.title = `${value.t('Hossein Esmaeili')} — ${value.t('Electrical Engineer')}`;
+    const description = value.t(content.profile.seoDescription);
+    document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+    for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) {
+      document.querySelector(selector)?.setAttribute('content', document.title);
+    }
+    for (const selector of ['meta[property="og:description"]', 'meta[name="twitter:description"]']) {
+      document.querySelector(selector)?.setAttribute('content', description);
+    }
+    for (const selector of ['meta[property="og:image:alt"]', 'meta[name="twitter:image:alt"]']) {
+      document.querySelector(selector)?.setAttribute('content', value.t(content.profile.socialImageAlt));
+    }
+    document.querySelector('meta[property="og:locale"]')?.setAttribute('content', language === 'fa' ? 'fa_IR' : 'en_US');
+    document.querySelector('meta[property="og:locale:alternate"]')?.setAttribute('content', language === 'fa' ? 'en_US' : 'fa_IR');
     try { localStorage.setItem(storageKey, language); } catch { /* The switch still works without persistence. */ }
   }, [language, value]);
   return <Context.Provider value={value}>{children}</Context.Provider>;

@@ -14,11 +14,9 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import NavigationOverlay from './components/NavigationOverlay';
-import ContactDialog from './components/ContactDialog';
+import { profile } from './data/portfolio';
 type Overlay = {
     type: 'navigation';
-} | {
-    type: 'contact';
 } | null;
 export default function App() {
     const { t } = useLanguage();
@@ -29,7 +27,7 @@ export default function App() {
     const lenis = useSmoothScroll(!ready || !!overlay);
     const finishIntro = useCallback(() => setReady(true), []);
     const close = useCallback(() => setOverlay(null), []);
-    const contact = useCallback(() => setOverlay({ type: 'contact' }), []);
+    const contactHref = `mailto:${profile.contact.email}`;
     useEffect(() => {
         if (overlay || !pendingNav.current)
             return;
@@ -41,6 +39,6 @@ export default function App() {
         } });
         return () => cancelAnimationFrame(frame);
     }, [overlay, lenis, reduced]);
-    return <MotionConfig reducedMotion="user"><a className="skip" href="#main">{t("Skip to content")}</a><PageLoader onComplete={finishIntro}/><div inert={!ready}><Header ready={ready} onMenu={() => setOverlay({ type: 'navigation' })} onContact={contact}/><main id="main" tabIndex={-1}><Hero ready={ready} onContact={contact}/><Projects /><About /><Capabilities /><Process /><Experience /><Skills /><Contact onContact={contact}/></main><Footer onContact={contact}/></div>{overlay?.type === 'navigation' && <NavigationOverlay onClose={close} onContact={contact} onNavigate={id => { pendingNav.current = id; close(); }}/>}{overlay?.type === 'contact' && <ContactDialog onClose={close}/>}</MotionConfig>;
+    return <MotionConfig reducedMotion="user"><a className="skip" href="#main">{t("Skip to content")}</a><PageLoader onComplete={finishIntro}/><div inert={!ready}><Header ready={ready} onMenu={() => setOverlay({ type: 'navigation' })} contactHref={contactHref}/><main id="main" tabIndex={-1}><Hero ready={ready} contactHref={contactHref}/><Projects /><About /><Capabilities /><Process /><Experience /><Skills /><Contact contactHref={contactHref}/></main><Footer contactHref={contactHref}/></div>{overlay?.type === 'navigation' && <NavigationOverlay onClose={close} contactHref={contactHref} onNavigate={id => { pendingNav.current = id; close(); }}/>}</MotionConfig>;
 }
 

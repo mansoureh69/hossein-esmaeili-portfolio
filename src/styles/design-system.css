@@ -74,7 +74,7 @@ h1,h2,h3,p { text-wrap: pretty; }
 .swatch { height:7rem; border-radius:.5rem; border:1px solid var(--line); margin-bottom:1rem; }
 .swatch-paper { background:var(--color-paper); }.swatch-card { background:var(--color-card); }.swatch-concrete { background:var(--color-concrete); }.swatch-graphite { background:var(--color-graphite); }.swatch-steel { background:var(--color-steel); }.swatch-copper { background:var(--color-copper); }
 .system-swatches h3 { font-size:1rem; letter-spacing:0; margin-bottom:.5rem; }
-.system-page code { font-size:.7rem; color:var(--muted); direction:ltr; display:inline-block; }
+.system-page code { font-size:var(--font-size-small); color:var(--muted); direction:ltr; display:inline-block; }
 .system-type { padding:2rem; border:1px solid var(--line); border-radius:1rem; background:var(--color-card); }
 .system-type h3 { font-size:2rem; margin-bottom:1rem; }.system-type p { max-width:65ch; line-height:1.9; margin-bottom:1rem; }
 .system-components { display:flex; align-items:center; flex-wrap:wrap; gap:1.5rem; }.system-components .tags { margin:0; }
@@ -104,7 +104,7 @@ h1,h2,h3,p { text-wrap: pretty; }
 .footer .back-top { border-color:#62635e45; }
 .footer-socials { align-items:flex-start; }
 .footer-social-list { display:flex; flex-wrap:wrap; gap:.55rem; max-width:14rem; }
-.social-button { display:flex; align-items:center; gap:.45rem; min-height:2.5rem; padding:.55rem .75rem; border:1px solid #62635e45; border-radius:999px; color:var(--foreground); font-size:.68rem; transition:background .2s,transform .2s; }
+.social-button { display:flex; align-items:center; gap:.45rem; min-height:2.5rem; padding:.55rem .75rem; border:1px solid #62635e45; border-radius:999px; color:var(--foreground); font-size:var(--font-size-small); transition:background .2s,transform .2s; }
 .social-button:disabled { cursor:not-allowed; opacity:.58; }
 .social-telegram { background:linear-gradient(135deg,#a85f35,#874a2c); border-color:transparent; color:white; }
 @media(min-width:1024px) { .menu-button { display:none; } }
