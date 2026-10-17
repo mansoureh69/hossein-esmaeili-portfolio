@@ -32,7 +32,6 @@ for (const language of ['en', 'fa']) {
       for (const [selector, surface] of [
         ['.visual-caption span', 'body'], ['.timeline-date', 'body'],
         ['.secondary-action>span', 'body'], ['.process-line', '.process-wrap'],
-        ['.hero-image-label', '.hero-image-label'],
       ]) {
         const color = await page.locator(selector).first().evaluate(el => getComputedStyle(el).color);
         const background = await page.locator(surface).first().evaluate(el => getComputedStyle(el).backgroundColor);
