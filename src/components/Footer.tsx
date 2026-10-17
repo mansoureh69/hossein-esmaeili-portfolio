@@ -6,7 +6,7 @@ const socialIcons = {
   LinkedIn: Linkedin,
   Telegram: Send,
 };
-export default function Footer({ onContact }: { onContact: () => void }) {
+export default function Footer({ contactHref }: { contactHref: string }) {
   const { t, language } = useLanguage();
   const { navigation, profile } = usePortfolio();
   return (
@@ -27,9 +27,9 @@ export default function Footer({ onContact }: { onContact: () => void }) {
               .filter((n) => n.id !== "home")
               .map((item) =>
                 item.id === "contact" ? (
-                  <button key={item.id} onClick={onContact}>
+                  <a key={item.id} href={contactHref}>
                     {item.label}
-                  </button>
+                  </a>
                 ) : (
                   <a key={item.id} href={`#${item.id}`}>
                     {item.label}

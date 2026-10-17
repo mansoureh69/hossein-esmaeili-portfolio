@@ -28,7 +28,7 @@ export default function PageLoader({ onComplete }: { onComplete: () => void }) {
           initial={{ y: 0 }}
           exit={{ y: reduced ? 0 : "-100%", opacity: reduced ? 0 : 1 }}
           transition={{ duration: reduced ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
-          aria-label={t("Introducing Hossein Esameili")}
+          aria-label={t("Introducing Hossein Esmaeili")}
         >
           <Brand />
           <p>

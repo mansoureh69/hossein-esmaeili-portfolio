@@ -4,7 +4,7 @@ import { useLanguage, usePortfolio } from '../i18n/LanguageContext';
 import { Pill } from './Shared';
 import LiquidReveal from './LiquidReveal';
 
-export default function Hero({ ready, onContact }: { ready: boolean; onContact: () => void }) {
+export default function Hero({ ready, contactHref }: { ready: boolean; contactHref: string }) {
   const { t, language } = useLanguage();
   const { profile, themes } = usePortfolio();
   const [index, setIndex] = useState(0);
@@ -15,7 +15,7 @@ export default function Hero({ ready, onContact }: { ready: boolean; onContact: 
         <p className="eyebrow"><span className="tiny-dot" />{t('Electrical Engineer')}</p>
         <h1 id="hero-title"><span>{t('Electrical design.').replace(/\.+$/, '')}</span><span>{t('Project supervision.').replace(/\.+$/, '')}</span><span className="hero-heading-note">{t('Built on experience.').replace(/\.+$/, '')}</span></h1>
         <p className="hero-description">{profile.introduction}</p>
-        <div className="hero-buttons"><Pill href="#projects">{t('Explore Projects')}</Pill><Pill outline arrow={false} onClick={onContact}>{t('Get in Touch')}</Pill></div>
+        <div className="hero-buttons"><Pill href="#projects">{t('Explore Projects')}</Pill><Pill outline arrow={false} href={contactHref}>{t('Get in Touch')}</Pill></div>
         <p className="hero-credential">{t('Seven years of electrical engineering for buildings.')}</p>
       </div>
       <div className="hero-visual-column">
@@ -26,7 +26,6 @@ export default function Hero({ ready, onContact }: { ready: boolean; onContact: 
             <button aria-label={t('Next theme')} onClick={() => setIndex(i => (i + 1) % themes.length)}><ArrowRight size={18} /></button>
           </div></div>
         </aside>
-        <p className="hero-image-label">{t("Concept illustration")}</p>
       </div>
     </div>
     <div className="shell hero-status"><span>{profile.biography.location}</span><span>{t('Electrical Engineering')}</span><a href="#projects">{t('Explore the work')}<ArrowDown size={16} /></a></div>

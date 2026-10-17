@@ -1,4 +1,4 @@
-﻿import { Brand, Pill } from './Shared';
+import { Brand, Pill } from './Shared';
 import { LanguageSwitch, useLanguage } from '../i18n/LanguageContext';
 const colors = ['paper','card','concrete','graphite','steel','copper'] as const;
 export default function DesignSystem() {
@@ -6,7 +6,7 @@ export default function DesignSystem() {
   const fa = language === 'fa';
   return <main className="shell system-page">
     <header className="system-header"><Brand /><LanguageSwitch /><a href="/">{fa ? 'بازگشت به سایت' : 'Back to portfolio'}</a></header>
-    <p className="section-kicker">HOSSEIN ESAMEILI / DESIGN SYSTEM 01</p>
+    <p className="section-kicker">HOSSEIN ESMAEILI / DESIGN SYSTEM 01</p>
     <h1>{fa ? 'دقیق، روشن، یکپارچه' : 'Precise. Clear. Consistent'}</h1>
     <p className="body-copy">{fa ? 'هویت بصری برگرفته از معماری: کاغذ گرم، گرافیت و تأکید مسی.' : 'An architectural identity built from warm paper, graphite and a restrained copper accent.'}</p>
     <section><h2>{fa ? 'رنگ و سطوح' : 'Color & surfaces'}</h2><div className="system-swatches">{colors.map(color => <div key={color}><div className={`swatch swatch-${color}`} /><h3>{color}</h3><code>--color-{color}</code></div>)}</div></section>

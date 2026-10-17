@@ -2,7 +2,7 @@ import ContactOptions from "./ContactOptions";
 import { useLanguage } from "../i18n/LanguageContext";
 import { ArrowUpRight } from "lucide-react";
 import { Pill, Reveal } from "./Shared";
-export default function Contact({ onContact }: { onContact: () => void }) {
+export default function Contact({ contactHref }: { contactHref: string }) {
   const { t } = useLanguage();
 
   return (
@@ -22,7 +22,7 @@ export default function Contact({ onContact }: { onContact: () => void }) {
         </p>
         <ContactOptions />
         <div className="contact-actions">
-          <Pill light onClick={onContact}>
+          <Pill light href={contactHref}>
             {t("Get in Touch")}
           </Pill>
         </div>

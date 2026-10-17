@@ -6,7 +6,7 @@ export function Brand({ short = false }: {
     short?: boolean;
 }) {
     const { t } = useLanguage();
-    return <span className="brand"><img className="brand-mark brand-mark-dark" src="/images/hossein-mark.svg" alt="" width="128" height="160" /><img className="brand-mark brand-mark-light" src="/images/hossein-mark-light.svg" alt="" width="128" height="160" />{!short && <span>{t("Hossein Esameili")}<span className="brand-caption">{t("Electrical Engineer")}</span></span>}</span>;
+    return <span className="brand"><img className="brand-mark brand-mark-dark" src="/images/hossein-mark.svg" alt="" width="128" height="160" /><img className="brand-mark brand-mark-light" src="/images/hossein-mark-light.svg" alt="" width="128" height="160" />{!short && <span>{t("Hossein Esmaeili")}<span className="brand-caption">{t("Electrical Engineer")}</span></span>}</span>;
 }
 export function Reveal({ children, className = '', delay = 0 }: {
     children: ReactNode;

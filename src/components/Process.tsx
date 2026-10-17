@@ -15,7 +15,6 @@ export default function Process() {
     <section className="process-wrap">
       <div className="shell section">
         <Reveal className="section-heading">
-          <span className="section-kicker">{t("The working process")}</span>
           <h2>
             {t("From your plans to")}{" "}
             {t("a clear project scope.").replace(/\.+$/, "")}

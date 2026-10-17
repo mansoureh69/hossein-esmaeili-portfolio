@@ -1,4 +1,4 @@
-# Hossein Esameili Â· Electrical Engineering Portfolio
+# Hossein Esmaeili Â· Electrical Engineering Portfolio
 
 A complete React + TypeScript + Vite portfolio based on the supplied Lumora direction. Includes all requested sections, a canvas photo reveal, intro sequence, theme carousel, project case studies, expandable expertise, accessible dialogs, and a demonstration contact form.
 
@@ -55,7 +55,7 @@ Checks cover 360, 768, 1024, and 1440px layouts, the loader, carousel wraparound
 
 Hero artwork: supplied `hero.jpg`, preserved in `src/assets/hero-original.jpg`. The hero uses `public/images/hero.webp`, optimized to 2200 ? 1228 (about 145 KiB).
 
-Typeface: Onest through Google Fonts. Font loading requires internet access; the CSS includes a sans-serif fallback. Interface icons are from Lucide. Technical diagrams are authored specifically for this portfolio.
+Typefaces: Onest Variable and Vazirmatn Variable are self-hosted through Fontsource packages and bundled by Vite. No external font service is required; CSS includes system fallbacks. Interface icons are from Lucide. Technical diagrams are authored specifically for this portfolio.
 
 ## Persian and English
 

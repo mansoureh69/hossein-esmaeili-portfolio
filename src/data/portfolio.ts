@@ -6,9 +6,11 @@ export const navigation = [
   { label: 'Experience', id: 'experience' }, { label: 'Contact', id: 'contact' },
 ];
 export const profile = {
-  "name": "Hossein Esameili",
+  "seoDescription": "Hossein Esmaeili: electrical design, Phase 2, execution and as-built drawings, and supervision for residential, commercial and office buildings in Tehran.",
+  "socialImageAlt": "Hossein Esmaeili, electrical engineer in Tehran, over a conceptual illustration of building electrical drawings.",
+  "name": "Hossein Esmaeili",
   "title": "Electrical Engineer",
-  "introduction": "I’m Hossein Esameili, an electrical engineer in Tehran with 7 years of experience in building electrical design and supervision. Send your drawings and project brief to start a conversation.",
+  "introduction": "I’m Hossein Esmaeili, an electrical engineer in Tehran with 7 years of experience in building electrical design and supervision. Send your drawings and project brief to start a conversation.",
   "biography": {
     "specialization": "Building electrical design & supervision",
     "location": "Tehran, Iran · Projects across Iran",
@@ -28,7 +30,7 @@ export const profile = {
       },
       {
         "label": "LinkedIn",
-        "url": ""
+        "url": "https://www.linkedin.com/in/hossein-esmaeili-3935672b1/"
       },
       {
         "label": "Telegram",

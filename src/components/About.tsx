@@ -2,7 +2,6 @@ import { useLanguage, usePortfolio } from "../i18n/LanguageContext";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Pill, Reveal, SocialLinks } from "./Shared";
-import EngineeringVisual from "./EngineeringVisual";
 export default function About() {
   const { t } = useLanguage();
   const { profile } = usePortfolio();
@@ -20,13 +19,12 @@ export default function About() {
     <section id="about" className="section shell about" tabIndex={-1}>
       <Reveal className="about-visual">
         <p className="eyebrow">{t("About")}</p>
-        <EngineeringVisual type="converter" />
         <p className="visual-caption">
-          {t("Good questions.")}
-          <span>{t("Better connections.")}</span>
+          {t("From electrical plans")}{" "}
+          <span>{t("to on-site supervision.")}</span>
         </p>
       </Reveal>
-      <div>
+      <div className="about-copy">
         <motion.h2
           className="about-statement"
           initial="hidden"
