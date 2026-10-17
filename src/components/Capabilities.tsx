@@ -39,7 +39,7 @@ export default function Capabilities() {
       onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)} />
     <div className="expertise-video-shade" aria-hidden="true" />
     <div className="expertise-video-content">
-      <Reveal className="section-heading"><h2>{t('Engineering Focus')}</h2><p>{t('Electrical engineering services for residential, commercial and office buildings.')}</p></Reveal>
+      <Reveal className="section-heading"><span className="section-kicker">{t('Services for your project')}</span><h2>{t('From design intent to installation')}</h2><p>{t('Choose a complete electrical design package or focused support for drawings, system calculations and site supervision.')}</p></Reveal>
       {!failed && <button className="expertise-video-control" type="button" onClick={() => {
         if (playing) { setPreference(false); video.current?.pause(); }
         else { setPreference(true); void video.current?.play().catch(() => setPlaying(false)); }

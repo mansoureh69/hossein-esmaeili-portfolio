@@ -7,20 +7,20 @@ test('intro, carousel, projects, navigation and direct contact', async ({ page }
   await expect(page.locator('.loader')).toHaveCount(0, { timeout: 10000 });
   await expect(page.locator('html')).not.toHaveCSS('overflow', 'hidden');
   await expect(page.locator('h1')).toHaveCount(1);
-  await expect(page.locator('.focus-copy')).toContainText('Detailed design. Clear execution');
+  await expect(page.locator('.focus-copy')).toContainText('Drawings your construction team can work from');
   await page.getByRole('button', { name: 'Previous theme' }).click();
-  await expect(page.locator('.focus-copy')).toContainText('Lighting, cabling & fire alarm');
+  await expect(page.locator('.focus-copy')).toContainText('Define the right scope before work begins');
   await page.getByRole('button', { name: 'Next theme' }).click();
-  await expect(page.locator('.focus-copy')).toContainText('Detailed design. Clear execution');
+  await expect(page.locator('.focus-copy')).toContainText('Drawings your construction team can work from');
   await page.getByRole('link', { name: 'Explore Projects', exact: true }).click();
   await expect(page).toHaveURL(/#projects$/);
   await expect(page.locator('.projects-shutter')).toContainText('Kaveh Residential');
   await expect(page.locator('.projects-shutter')).not.toHaveRole('button');
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'Instagram: Link coming soon' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Instagram: Link coming soon' })).toHaveCount(0);
   await expect(page.locator('#contact').getByRole('link', { name: 'LinkedIn', exact: true })).toHaveAttribute('href', 'https://www.linkedin.com/in/hossein-esmaeili-3935672b1/');
   await expect(page.locator('#contact').getByRole('link', { name: 'Telegram' })).toHaveAttribute('href', 'https://t.me/Hosseines1213');
-  await expect(page.locator('.focus-block')).toHaveCount(4);
+  await expect(page.locator('.focus-block')).toHaveCount(6);
   await page.setViewportSize({ width: 768, height: 1000 });
   await page.getByRole('button', { name: 'Open navigation' }).click();
   await expect(page.getByRole('dialog')).toHaveAccessibleName('Navigation');
@@ -29,12 +29,12 @@ test('intro, carousel, projects, navigation and direct contact', async ({ page }
   await expect(page).toHaveURL(/#contact$/);
   await expect(page.locator('html')).not.toHaveCSS('overflow', 'hidden');
   for (const selector of ['.hero-buttons', '.contact-actions', '.header', '.footer']) {
-    await expect(page.locator(`${selector} a[href="mailto:h.esmaeili1213@gmail.com"]`)).toHaveCount(1);
+    await expect(page.locator(`${selector} a[href^="mailto:h.esmaeili1213@gmail.com"]`)).toHaveCount(1);
   }
   await expect(page.locator('form')).toHaveCount(0);
   await expect(page.getByText(/Demo form|Demo complete|Message sent/)).toHaveCount(0);
   await page.getByRole('button', { name: 'Open navigation' }).click();
-  await expect(page.getByRole('dialog').getByRole('link', { name: 'Get in Touch' })).toHaveAttribute('href', 'mailto:h.esmaeili1213@gmail.com');
+  await expect(page.getByRole('dialog').getByRole('link', { name: 'Get in Touch' })).toHaveAttribute('href', /^mailto:h\.esmaeili1213@gmail\.com\?subject=/);
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toHaveCount(0);
   expect(errors).toEqual([]);

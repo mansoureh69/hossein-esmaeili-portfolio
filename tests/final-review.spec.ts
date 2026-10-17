@@ -15,18 +15,32 @@ for (const language of ['en', 'fa']) {
         await expect(page.locator('.loader')).toHaveCount(0);
         await expect(page.locator('.header')).toHaveCSS('opacity', '1');
         await expect(page.locator('html')).toHaveAttribute('dir', language === 'fa' ? 'rtl' : 'ltr');
-        const ids = ['home', 'about', 'projects', 'expertise', 'experience', 'contact'];
+        const ids = ['home', 'projects', 'about', 'expertise', 'experience', 'contact'];
+        const labels = language === 'fa'
+          ? ['خانه', 'پروژه‌ها', 'درباره من', 'تخصص‌ها', 'سوابق', 'تماس']
+          : ['Home', 'Projects', 'About', 'Expertise', 'Experience', 'Contact'];
+        await expect(page.locator('.header nav a')).toHaveText(labels);
+        await expect(page.locator('.footer nav a')).toHaveText(labels.slice(1));
+        for (const id of ids.filter(id => id !== 'contact')) {
+          await expect(page.locator(`.header nav a[href="#${id}"]`)).toHaveCount(1);
+          if (id !== 'home') await expect(page.locator(`.footer nav a[href="#${id}"]`)).toHaveCount(1);
+        }
+        await expect(page.locator('.footer nav a').last()).toHaveAttribute('href', /^mailto:h\.esmaeili1213@gmail\.com\?subject=/);
         for (const [index, id] of ids.entries()) {
           if (width < 1024) {
             await page.locator('.menu-button').click();
+            await expect(page.locator('.navigation-dialog nav button')).toHaveText(
+              labels.map((label, position) => new RegExp(`^0${position + 1}\\s*${label}$`)),
+            );
             await page.locator('.navigation-dialog nav button').nth(index).click();
             await expect(page.getByRole('dialog')).toHaveCount(0);
           } else if (id === 'contact') {
-            await expect(page.locator('.header-contact')).toHaveAttribute('href', 'mailto:h.esmaeili1213@gmail.com');
-            await page.locator('#contact').scrollIntoViewIfNeeded();
+            await expect(page.locator('.header-contact')).toHaveAttribute('href', /^mailto:h\.esmaeili1213@gmail\.com\?subject=/);
+            continue;
           } else {
             await page.locator(`.header nav a[href="#${id}"]`).click();
           }
+          await expect(page).toHaveURL(new RegExp(`#${id}$`));
           const heading = page.locator(`#${id} h1, #${id} h2`).first();
           await expect.poll(async () => {
             const box = await heading.boundingBox();

@@ -9,12 +9,12 @@ test('static sharing metadata and crawler files work without JavaScript', async 
   expect(html).toContain(`rel="canonical" href="${canonical}"`);
   expect(html).toContain('name="robots" content="index, follow"');
   expect(html).toContain('name="twitter:card" content="summary_large_image"');
-  expect(html).toContain(`property="og:image" content="${canonical}images/og-portfolio.jpg"`);
-  expect(html).toContain('property="og:image:width" content="1200"');
-  expect(html).toContain('property="og:image:height" content="630"');
+  expect(html).toContain(`property="og:image" content="${canonical}images/hero.webp"`);
+  expect(html).toContain('property="og:image:width" content="2200"');
+  expect(html).toContain('property="og:image:height" content="1228"');
   expect(html).toContain('Phase 2, execution and as-built drawings');
   expect(html).not.toMatch(/Esameili|simulation/);
-  expect((await request.get('/images/og-portfolio.jpg')).headers()['content-type']).toContain('image/jpeg');
+  expect((await request.get('/images/hero.webp')).headers()['content-type']).toContain('image/webp');
   expect(await (await request.get('/robots.txt')).text()).toContain(`Sitemap: ${canonical}sitemap.xml`);
   const sitemap = await (await request.get('/sitemap.xml')).text();
   expect(sitemap).toContain(`<loc>${canonical}</loc>`);
@@ -41,9 +41,9 @@ test('metadata and name stay consistent when switching languages', async ({ page
   await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', 'Hossein Esmaeili — Electrical Engineer');
   const size = await page.evaluate(async () => {
     const image = new Image();
-    image.src = '/images/og-portfolio.jpg';
+    image.src = '/images/hero.webp';
     await image.decode();
     return [image.naturalWidth, image.naturalHeight];
   });
-  expect(size).toEqual([1200, 630]);
+  expect(size).toEqual([2200, 1228]);
 });

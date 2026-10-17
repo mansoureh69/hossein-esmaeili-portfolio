@@ -20,7 +20,13 @@ for (const language of ['en', 'fa']) {
         await expect(page.locator(`#${id}`)).toBeVisible();
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
-      await expect(page.locator('.focus-block')).toHaveCount(4);
+      await expect(page.locator('.focus-block')).toHaveCount(6);
+      await expect(page.locator('.hero-proof')).toContainText(language === 'en' ? '300,000+ m²' : '۳۰۰٬۰۰۰');
+      await expect(page.locator('.about-credentials')).toContainText(language === 'en' ? 'Tehran Fire Department' : 'آتش‌نشانی تهران');
+      const consultation = new URL((await page.locator('.hero-buttons a').first().getAttribute('href'))!);
+      expect(consultation.protocol).toBe('mailto:');
+      expect(consultation.pathname).toBe('h.esmaeili1213@gmail.com');
+      expect(consultation.searchParams.get('subject')).toBe(language === 'en' ? 'Electrical engineering project consultation' : 'مشاوره مهندسی برق پروژه');
       await expect(page.locator('#contact .direct-contact a[href^="mailto:"]')).toHaveCount(1);
       await expect(page.locator('#contact .direct-contact a[href^="tel:"]')).toHaveCount(1);
       await expect(page.locator('#contact .direct-contact a[href^="https://t.me/"]')).toHaveCount(1);

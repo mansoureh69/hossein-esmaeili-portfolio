@@ -27,7 +27,7 @@ export default function App() {
     const lenis = useSmoothScroll(!ready || !!overlay);
     const finishIntro = useCallback(() => setReady(true), []);
     const close = useCallback(() => setOverlay(null), []);
-    const contactHref = `mailto:${profile.contact.email}`;
+    const contactHref = `mailto:${profile.contact.email}?subject=${encodeURIComponent(t('Electrical engineering project consultation'))}`;
     useEffect(() => {
         if (overlay || !pendingNav.current)
             return;

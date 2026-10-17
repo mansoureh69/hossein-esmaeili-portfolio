@@ -29,7 +29,7 @@ function ProjectSlider({ projects }: { projects: Project[] }) {
       image: image.src,
       alt: image.alt || project.title,
       title: project.title,
-      caption: project.location,
+      caption: project.description,
       category: project.category,
       notice: project.images?.length ? undefined : t("Project photos coming soon"),
       details: <div className="project-details"><strong>{area || t("Area not provided")}</strong>{project.tags.filter(tag => tag !== area).map(tag => <span key={tag}>{tag}</span>)}</div>,
@@ -57,9 +57,9 @@ export default function Projects() {
   return (
     <section id="projects" className="section shell projects-section" tabIndex={-1}>
       <Reveal className="section-heading centered">
-        <span className="section-kicker">{t("Ideas into practice")}</span>
+        <span className="section-kicker">{t("Project experience")}</span>
         <h2>{t("Selected Engineering")} {t("Projects")}</h2>
-        <p>{t("Explore projects by building use.")}</p>
+        <p>{t("Selected work from a portfolio spanning 300,000+ m². Explore residential developments, municipal offices and commercial buildings by project type.")}</p>
       </Reveal>
       <div className="project-filters" role="group" aria-label={t("Project categories")}>
         {['All projects', ...categories].map(category => <button key={category} type="button" aria-pressed={active === category} aria-controls="project-results" onClick={() => setActive(category)}>{t(category)}<span>{projects.filter(project => matches(project.id, category)).length.toLocaleString(language)}</span></button>)}

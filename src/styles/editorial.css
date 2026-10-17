@@ -159,6 +159,47 @@ p {
   max-width: 46ch;
   color: var(--color-text-secondary);
 }
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.5rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  width: fit-content;
+  max-width: 100%;
+}
+.hero-proof > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.35rem;
+}
+.hero-proof dt {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+.hero-proof dd {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.about-credentials {
+  margin-top: 1.5rem;
+  padding-inline-start: 1.1rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+.about-credentials li + li { margin-top: 0.4rem; }
+.contact-panel .contact-brief {
+  padding-inline-start: 1rem;
+  border-inline-start: 2px solid var(--accent);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+.hero-main h1,
+.section-heading h2,
+.contact-panel h2 { text-wrap: balance; }
 .hero-credential {
   margin-top: 2rem;
   padding-inline-start: 1rem;

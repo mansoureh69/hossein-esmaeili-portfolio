@@ -6,7 +6,7 @@ export default function About() {
   const { t } = useLanguage();
   const { profile } = usePortfolio();
   const reduced = useReducedMotion();
-  const words = t("Seven years of electrical engineering for buildings.")
+  const words = t("Engineering experience grounded in construction")
     .replace(/\.+$/, "")
     .split(" ");
   const fields = [
@@ -48,9 +48,14 @@ export default function About() {
         <Reveal delay={0.1}>
           <p className="body-copy">
             {t(
-              "Based in Tehran, I work on electrical drawings, execution documentation and supervision for residential, commercial and office buildings. I also collaborate remotely and travel for supervision and execution-drawing projects.",
+              "With 7+ years of experience across 300,000+ m² of building projects, I connect electrical design with the realities of installation. I work with developers, architects and construction teams on residential, commercial and office buildings, from detailed drawings to site supervision.",
             )}
           </p>
+          <ul className="about-credentials" aria-label={t("Professional credentials")}>
+            <li>{t("Tehran Engineering Organization licence")}</li>
+            <li>{t("Fire alarm systems certificate — Tehran Fire Department")}</li>
+            <li>{t("AutoCAD documentation · DIALux lighting design")}</li>
+          </ul>
           <dl className="bio-details">
             {fields.map(([label, value]) => (
               <div key={label}>
