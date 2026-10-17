@@ -11,7 +11,7 @@ export default function Experience() {
         <h2>
           {t("Experience & Education")}
         </h2>
-        <p>{t("The background behind the work.")}</p>
+        <p>{t("Professional practice, engineering credentials and specialist training behind each project.")}</p>
       </Reveal>
       <div className="timeline">
         {experience.map((group, i) => {

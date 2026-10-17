@@ -18,8 +18,7 @@ export default function Footer({ contactHref }: { contactHref: string }) {
               <Brand />
             </a>
             <p>
-              {t("Engineering ideas with curiosity,")}
-              {t("clarity, and considered design.")}
+              {t("Electrical design, construction documentation and site supervision. Based in Tehran. Available for remote collaboration.")}
             </p>
           </div>
           <nav aria-label={t("Footer")}>
@@ -43,7 +42,7 @@ export default function Footer({ contactHref }: { contactHref: string }) {
               role="group"
               aria-label={t("Social links")}
             >
-              {profile.contact.socials.map((s) => {
+              {profile.contact.socials.filter(s => s.url).map((s) => {
                 const name = (
                   Object.keys(socialIcons) as Array<keyof typeof socialIcons>
                 ).find((label) => t(label) === s.label);

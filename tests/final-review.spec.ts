@@ -22,7 +22,7 @@ for (const language of ['en', 'fa']) {
             await page.locator('.navigation-dialog nav button').nth(index).click();
             await expect(page.getByRole('dialog')).toHaveCount(0);
           } else if (id === 'contact') {
-            await expect(page.locator('.header-contact')).toHaveAttribute('href', 'mailto:h.esmaeili1213@gmail.com');
+            await expect(page.locator('.header-contact')).toHaveAttribute('href', /^mailto:h\.esmaeili1213@gmail\.com\?subject=/);
             await page.locator('#contact').scrollIntoViewIfNeeded();
           } else {
             await page.locator(`.header nav a[href="#${id}"]`).click();

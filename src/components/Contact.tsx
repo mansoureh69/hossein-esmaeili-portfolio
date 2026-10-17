@@ -13,17 +13,18 @@ export default function Contact({ contactHref }: { contactHref: string }) {
         </div>
         <span className="section-kicker">{t("Let\u2019s connect")}</span>
         <h2>
-          {t("Planning a building project?")}
+          {t("Let’s define your electrical scope")}
         </h2>
         <p>
           {t(
-            "Send your drawings and specifications by email or Telegram, or call to discuss your project.",
+            "Planning a new build, preparing construction drawings or looking for site supervision? Share your plans to discuss the engineering support your project needs.",
           )}
         </p>
+        <p className="contact-brief">{t("Include your location, building use, approximate area, project stage and target schedule. Architectural plans or existing electrical drawings are a useful starting point.")}</p>
         <ContactOptions />
         <div className="contact-actions">
           <Pill light href={contactHref}>
-            {t("Get in Touch")}
+            {t("Send your drawings")}
           </Pill>
         </div>
       </Reveal>

@@ -12,7 +12,7 @@ test('switches language, localizes content and dialogs, and remembers preference
   await expect(page.locator('.hero-description')).toContainText('من حسین اسماعیلی هستم');
   await expect(page.locator('.projects-shutter')).toContainText('مسکونی کاوه');
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await expect(page.locator('.hero-buttons').getByRole('link', { name: 'ارتباط با من' })).toHaveAttribute('href', 'mailto:h.esmaeili1213@gmail.com');
+  await expect(page.locator('.hero-buttons').getByRole('link', { name: 'ارسال نقشه‌های پروژه' })).toHaveAttribute('href', /^mailto:h\.esmaeili1213@gmail\.com\?subject=/);
   await expect(page.locator('#contact').getByRole('link', { name: 'تلگرام', exact: true })).toHaveAttribute('href', 'https://t.me/Hosseines1213');
   await expect(page.locator('form')).toHaveCount(0);
   await expect(page.getByText(/فرم آزمایشی|آزمایش انجام شد|پیام ارسال شد/)).toHaveCount(0);
@@ -45,7 +45,7 @@ for (const width of [360, 768, 1024, 1440]) {
     expect(headerOverlap).toBe(false);
     await page.screenshot({ path: `test-results/persian-${width}.png`, fullPage: true });
     await page.screenshot({ path: `test-results/persian-hero-${width}.png` });
-    await expect(page.locator('.hero-buttons').getByRole('link', { name: 'ارتباط با من' })).toHaveAttribute('href', 'mailto:h.esmaeili1213@gmail.com');
+    await expect(page.locator('.hero-buttons').getByRole('link', { name: 'ارسال نقشه‌های پروژه' })).toHaveAttribute('href', /^mailto:h\.esmaeili1213@gmail\.com\?subject=/);
     await expect(page.getByRole('dialog')).toHaveCount(0);
   });
 }

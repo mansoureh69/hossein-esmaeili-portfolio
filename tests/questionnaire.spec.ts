@@ -6,7 +6,7 @@ test('questionnaire facts and real contact paths exist in both languages', async
   await expect(page.locator('.loader')).toHaveCount(0);
   await expect(page.locator('.projects-shutter')).toHaveCount(1);
   await expect(page.locator('.sb-count')).toHaveText('01 / 16');
-  await expect(page.locator('#experience')).toContainText('7 years of professional experience');
+  await expect(page.locator('#experience')).toContainText('7+ years in building electrical engineering');
   await expect(page.locator('#experience')).not.toContainText('Present');
   await expect(page.locator('#contact .direct-contact a[href="tel:+989190219729"]')).toHaveCount(1);
   await expect(page.locator('#contact .direct-contact a[href="mailto:h.esmaeili1213@gmail.com"]')).toHaveCount(1);
@@ -14,7 +14,7 @@ test('questionnaire facts and real contact paths exist in both languages', async
   await expect(page.locator('a[href*="wa.me"]')).toHaveCount(0);
   await expect(page.locator('.skills')).not.toContainText('LTspice');
   await page.getByRole('button', { name: 'تغییر زبان به فارسی' }).click();
-  await expect(page.locator('#experience')).toContainText('۷ سال تجربه حرفه‌ای');
+  await expect(page.locator('#experience')).toContainText('بیش از ۷ سال تجربه در مهندسی برق ساختمان');
   await expect(page.locator('#projects')).not.toContainText('خوابگاه شهید آوینی');
   await expect(page.locator('#expertise')).toContainText('نقشه‌های اجرایی و برداشت ازبیلت');
 });

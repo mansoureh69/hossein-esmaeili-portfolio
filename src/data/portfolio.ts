@@ -1,20 +1,20 @@
 export interface Project { id: string; title: string; category: string; description: string; location: string; tags: string[]; visual: 'building'; images?: { src: string; alt?: string }[]; }
 export interface TimelineEntry { title:string; organization:string; startDate:string; endDate?:string; location?:string; description:string; achievements:string[]; }
 export const navigation = [
-  { label: 'Home', id: 'home' }, { label: 'About', id: 'about' },
-  { label: 'Projects', id: 'projects' }, { label: 'Expertise', id: 'expertise' },
+  { label: 'Home', id: 'home' }, { label: 'Projects', id: 'projects' },
+  { label: 'About', id: 'about' }, { label: 'Expertise', id: 'expertise' },
   { label: 'Experience', id: 'experience' }, { label: 'Contact', id: 'contact' },
 ];
 export const profile = {
-  "seoDescription": "Hossein Esmaeili: electrical design, Phase 2, execution and as-built drawings, and supervision for residential, commercial and office buildings in Tehran.",
+  "seoDescription": "Hossein Esmaeili, senior electrical engineer in Tehran. 7+ years across 300,000+ m² of projects. Phase 2, execution and as-built drawings, and site supervision.",
   "socialImageAlt": "Hossein Esmaeili, electrical engineer in Tehran, over a conceptual illustration of building electrical drawings.",
   "name": "Hossein Esmaeili",
-  "title": "Electrical Engineer",
-  "introduction": "I’m Hossein Esmaeili, an electrical engineer in Tehran with 7 years of experience in building electrical design and supervision. Send your drawings and project brief to start a conversation.",
+  "title": "Senior Electrical Engineer",
+  "introduction": "I’m Hossein Esmaeili. I help developers, architects and building owners turn project requirements into coordinated electrical drawings and practical site decisions—from concept to construction.",
   "biography": {
     "specialization": "Building electrical design & supervision",
     "location": "Tehran, Iran · Projects across Iran",
-    "currentRole": "Electrical designer & supervisor",
+    "currentRole": "Senior electrical engineer · Design & supervision",
     "interests": "Residential, commercial & office buildings"
   },
   "resumeUrl": "",
@@ -43,15 +43,15 @@ export const profile = {
 export const themes = [
   {
     "title": "Electrical drawings",
-    "text": "Detailed design. Clear execution."
+    "text": "Drawings your construction team can work from"
   },
   {
     "title": "Project supervision",
-    "text": "Residential. Commercial. Office."
+    "text": "Technical continuity from plans to site"
   },
   {
     "title": "Technical consultation",
-    "text": "Lighting, cabling & fire alarm."
+    "text": "Define the right scope before work begins"
   }
 ];
 export const projects: Project[] = [
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     "category": "Residential",
     "visual": "building",
     "location": "Tehran · District 18",
-    "description": "Tehran · District 18",
+    "description": "A 196-unit residential development across 18 blocks in Tehran’s District 18.",
     "tags": [
       "36,000 m²",
       "196 units · 18 blocks"
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     "category": "Office",
     "visual": "building",
     "location": "Tehran · District 21",
-    "description": "Tehran · District 21",
+    "description": "A 36,000 m² municipal office building in Tehran’s District 21.",
     "tags": [
       "36,000 m²"
     ]
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     "category": "Residential",
     "visual": "building",
     "location": "Tehran · District 18",
-    "description": "Tehran · District 18",
+    "description": "A 200-unit residential complex spanning 30,000 m² in Tehran’s District 18.",
     "tags": [
       "30,000 m²",
       "200 units"
@@ -242,42 +242,52 @@ export const projects: Project[] = [
 ];
 export const capabilities = [
   {
-    "title": "Electrical design & Phase 2 drawings",
-    "short": "Detailed plans for building projects.",
-    "detail": "Specialist electrical drawings and detailed Phase 2 design for building projects."
+    "title": "Phase 1 & 2 electrical design",
+    "short": "From concept layouts to construction documentation.",
+    "detail": "Develop electrical layouts from the architectural brief, then prepare detailed Phase 2 drawings for lighting, power distribution and cable routes. Coordinate the design with the building layout and other disciplines."
   },
   {
     "title": "Execution & as-built drawings",
-    "short": "From construction drawings to as-built records.",
-    "detail": "Preparation of electrical execution drawings and as-built documentation based on the installed systems."
+    "short": "Clear drawings for installation and handover.",
+    "detail": "Prepare execution drawings for the site team and update as-built records to reflect installed systems and documented site changes. Keep construction and handover information aligned."
   },
   {
-    "title": "Electrical supervision",
-    "short": "Residential, commercial and office projects.",
-    "detail": "Electrical supervision for residential, commercial and office buildings. Travel outside Tehran is available for supervision and execution drawings."
+    "title": "Low-voltage & low-current systems",
+    "short": "Coordinate power, communication and building systems.",
+    "detail": "Plan power and low-current systems around the building’s use, equipment and infrastructure requirements. Coordinate routes and installation interfaces early in the design."
   },
   {
-    "title": "Technical advice",
-    "short": "Lighting, cabling, fire alarm and low-current systems.",
-    "detail": "Technical consultation on lighting, cabling, fire alarm and low-current systems. Remote collaboration is available."
+    "title": "Fire alarm systems",
+    "short": "System layouts informed by specialist training.",
+    "detail": "Develop fire alarm layouts and advise on device placement, cabling and coordination with the building design. Scope the work around project requirements and the applicable local approval process."
+  },
+  {
+    "title": "Switchboard design & calculations",
+    "short": "Turn electrical loads into a defined distribution scheme.",
+    "detail": "Prepare load calculations, distribution schedules and switchboard design documentation. Review equipment requirements and circuit arrangements as part of the agreed design scope."
+  },
+  {
+    "title": "Site supervision & technical consultation",
+    "short": "Support installation decisions with engineering oversight.",
+    "detail": "Review electrical installation work against the project drawings, identify coordination issues and discuss technical questions with the site team. Based in Tehran, with travel for supervision and remote design collaboration available."
   }
 ];
 export const process = [
   {
     "title": "Share your brief",
-    "text": "Send the drawings, location, building use and project requirements by email or Telegram."
+    "text": "Send your architectural plans, location, building use, approximate area and current project stage by email or Telegram."
   },
   {
     "title": "Discuss the scope",
-    "text": "Discuss the design, execution drawings or supervision your project needs."
+    "text": "Identify the required systems, available drawings, site constraints and the design or supervision support you need."
   },
   {
     "title": "Agree the deliverables",
-    "text": "Confirm the scope, deliverables and schedule before starting."
+    "text": "Agree the drawing package, supervision scope, coordination responsibilities, fee and schedule before work begins."
   },
   {
-    "title": "Start the collaboration",
-    "text": "Proceed with the agreed electrical engineering services."
+    "title": "Coordinate through delivery",
+    "text": "Review the work at agreed milestones and resolve technical questions with your design or construction team."
   }
 ];
 export const experience: {title:string; empty:string; entries:TimelineEntry[]}[] = [
@@ -286,9 +296,9 @@ export const experience: {title:string; empty:string; entries:TimelineEntry[]}[]
     "empty": "",
     "entries": [
       {
-        "title": "7 years of professional experience",
+        "title": "7+ years in building electrical engineering",
         "organization": "Arsh Eskan Mahestan · Arg Sazeh",
-        "description": "Electrical design and supervision, with experience across residential, office and commercial buildings.",
+        "description": "Design and supervision experience across 300,000+ m² of building projects, including residential developments, municipal offices and commercial complexes.",
         "startDate": "",
         "achievements": []
       }
@@ -343,6 +353,10 @@ export const experience: {title:string; empty:string; entries:TimelineEntry[]}[]
   }
 ];
 export const skills = [
+  {
+    "category": "Engineering software",
+    "tools": ["AutoCAD", "DIALux"]
+  },
   {
     "category": "Design documentation",
     "tools": [

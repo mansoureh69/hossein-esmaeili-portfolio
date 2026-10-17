@@ -12,11 +12,14 @@ export default function Hero({ ready, contactHref }: { ready: boolean; contactHr
     <LiquidReveal />
     <div className="shell hero-content">
       <div className="hero-main">
-        <p className="eyebrow"><span className="tiny-dot" />{t('Electrical Engineer')}</p>
-        <h1 id="hero-title"><span>{t('Electrical design.').replace(/\.+$/, '')}</span><span>{t('Project supervision.').replace(/\.+$/, '')}</span><span className="hero-heading-note">{t('Built on experience.').replace(/\.+$/, '')}</span></h1>
+        <p className="eyebrow"><span className="tiny-dot" />{profile.title}</p>
+        <h1 id="hero-title"><span>{t('Electrical design')}</span><span>{t('built for execution')}</span><span className="hero-heading-note">{t('From drawings to site supervision')}</span></h1>
         <p className="hero-description">{profile.introduction}</p>
-        <div className="hero-buttons"><Pill href="#projects">{t('Explore Projects')}</Pill><Pill outline arrow={false} href={contactHref}>{t('Get in Touch')}</Pill></div>
-        <p className="hero-credential">{t('Seven years of electrical engineering for buildings.')}</p>
+        <div className="hero-buttons"><Pill href={contactHref}>{t('Send your drawings')}</Pill><Pill outline arrow={false} href="#projects">{t('Explore Projects')}</Pill></div>
+        <dl className="hero-proof">
+          <div><dt>{t('Professional experience')}</dt><dd>{t('7+ years')}</dd></div>
+          <div><dt>{t('Design & supervision project area')}</dt><dd>{t('300,000+ m²')}</dd></div>
+        </dl>
       </div>
       <div className="hero-visual-column">
         <aside className="focus-card" aria-label={t('Engineering themes')}>
