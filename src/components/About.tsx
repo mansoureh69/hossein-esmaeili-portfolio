@@ -19,7 +19,7 @@ export default function About() {
   return (
     <section id="about" className="section shell about" tabIndex={-1}>
       <Reveal className="about-visual">
-        <p className="eyebrow">{t("About Hossein")}</p>
+        <p className="eyebrow">{t("About")}</p>
         <EngineeringVisual type="converter" />
         <p className="visual-caption">
           {t("Good questions.")}
