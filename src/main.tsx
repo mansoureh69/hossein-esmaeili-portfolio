@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
 import App from './App';
 import { LanguageProvider } from './i18n/LanguageContext';
 import '@fontsource-variable/vazirmatn';
@@ -16,7 +17,7 @@ Promise.allSettled([
   const Page = import.meta.env.DEV && window.location.pathname === '/design-system'
     ? (await import('./components/DesignSystem')).default
     : App;
-  ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><LanguageProvider><Page /></LanguageProvider><SpeedInsights /></React.StrictMode>);
+  ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><LanguageProvider><Page /></LanguageProvider><SpeedInsights /><Analytics /></React.StrictMode>);
 });
 
 
